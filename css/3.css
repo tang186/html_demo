@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  /* 背景色 */
+  background: linear-gradient(200deg, #ddd6f3, #faaca8);
+}
+
+body, .box, ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 50px;
+}
+
+.box input {
+  width: 40px;
+  height: 40px;
+  opacity: 0%;
+  cursor: pointer;
+}
+
+.box span {
+  position: absolute;
+  left: 25px;
+  /* 两条线平行 */
+  top: calc(50% - 10px);
+  width: 30px;
+  height: 4px;
+  border-radius: 15px;
+  background-color: #999;
+  /* 现在span在复选框上面如果点span复选框选不中 下面这个属性可以解决*/
+  pointer-events: none;
+
+  /* 收回来相反 */
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
+
+}
+
+.box span:nth-child(3) {
+  top: calc(50% + 6px)
+}
+
+.box ul {
+  width: 0;
+  overflow: hidden;
+
+  /* 让展开和收缩慢一点 */
+  transition: all 0.5s;
+
+  /* 收起来的时候这个园有点宽 因为收起来的时候文字被压缩到一竖所以变长了 */
+  /* 让文字不换行显示就好了 */
+  white-space: nowrap;
+}
+
+.box ul li {
+  list-style: none;
+  margin: 0px 15px;
+}
+.box ul li a{
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+.box ul li a:hover {
+  color: #fb7299;
+}
+/* :checked是当复选框被选中的时候 ~是兄弟选择器 查找同一级的ul */
+.box input:checked ~ ul{
+  width: 350px;
+}
+.box input:checked ~ span:nth-child(2) {
+  top: calc(50% - 2px);
+  transform: rotate(-45deg);
+  background-color: #fb7299;
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+}
+
+.box input:checked ~ span:nth-child(3) {
+  top: calc(50% - 2px);
+  transform: rotate(45deg);
+  background-color: #fb7299;
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+}
