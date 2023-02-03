@@ -24,6 +24,7 @@ body, .box, ul {
 .box input {
   width: 40px;
   height: 40px;
+  /* 让复选框透明这样就只显示两个span */
   opacity: 0%;
   cursor: pointer;
 }
@@ -31,7 +32,7 @@ body, .box, ul {
 .box span {
   position: absolute;
   left: 25px;
-  /* 两条线平行 */
+  /* 两条线平行 并且有一定距离*/
   top: calc(50% - 10px);
   width: 30px;
   height: 4px;
@@ -56,7 +57,7 @@ body, .box, ul {
   /* 让展开和收缩慢一点 */
   transition: all 0.5s;
 
-  /* 收起来的时候这个园有点宽 因为收起来的时候文字被压缩到一竖所以变长了 */
+  /* 收起来的时候这个圆有点宽 因为收起来的时候文字被压缩到一竖所以变长了 */
   /* 让文字不换行显示就好了 */
   white-space: nowrap;
 }

@@ -1,0 +1,36 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #7f8c8d;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  width: 900px;
+  height: 300px;
+  position: relative;
+  top: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  transition: 0.7s;
+  overflow: hidden;
+}
+
+.image:hover {
+  /* 被hover的哪一项 shrink和grow是零 其他的都是1 所以其他的分享
+  剩余的空间 而这一项不参与  */
+  flex-shrink: 0;
+  /* flex-grow: 0; */
+}
+
+img {
+  width: 400px;
+}
